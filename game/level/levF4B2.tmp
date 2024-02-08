@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvfucxmelmr6n"]
+
+[ext_resource type="PackedScene" uid="uid://crc6cii8gghvf" path="res://player.tscn" id="1_mhhbd"]
+[ext_resource type="PackedScene" uid="uid://dpwjgy8mnexw3" path="res://level/oponent.tscn" id="2_xxor7"]
+[ext_resource type="PackedScene" uid="uid://ktpx0viwrwoi" path="res://level/ball.tscn" id="3_xjqjt"]
+[ext_resource type="Script" path="res://level/ball.gd" id="4_480gi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tsme"]
+size = Vector2(1297, 18)
+
+[node name="Level" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.172549, 0.2, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_mhhbd")]
+position = Vector2(50, 360)
+
+[node name="Oponent" parent="." instance=ExtResource("2_xxor7")]
+position = Vector2(1230, 360)
+
+[node name="WallUp" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallUp"]
+position = Vector2(639, -10)
+shape = SubResource("RectangleShape2D_4tsme")
+
+[node name="WallDown" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallDown"]
+position = Vector2(640, 730)
+shape = SubResource("RectangleShape2D_4tsme")
+
+[node name="Ball" parent="." instance=ExtResource("3_xjqjt")]
+position = Vector2(640, 360)
+script = ExtResource("4_480gi")

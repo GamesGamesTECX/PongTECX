@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4kyjxddtsony"]
+
+[ext_resource type="Script" path="res://TelaInicial.gd" id="1_07cny"]
+[ext_resource type="Texture2D" uid="uid://npt6x21yjwgi" path="res://assets/back.png" id="2_fbvi8"]
+
+[node name="TelaInicial" type="Node"]
+script = ExtResource("1_07cny")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fbvi8")
+
+[node name="New Game" type="Button" parent="."]
+offset_left = 247.0
+offset_top = 171.0
+offset_right = 1099.0
+offset_bottom = 306.0
+text = "New Game"
+
+[node name="Load Game" type="Button" parent="."]
+offset_left = 245.0
+offset_top = 432.0
+offset_right = 1097.0
+offset_bottom = 567.0
+text = "Load Game"
+
+[connection signal="pressed" from="New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Load Game" to="." method="_on_load_game_pressed"]
